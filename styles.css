@@ -1,0 +1,279 @@
+      .step {
+            display: none;
+        }
+        .step.active {
+            display: block;
+        }
+        #productsTable td, #productsTable th {
+            padding: 8px;
+            text-align: left;
+        }
+        .image-preview {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-top: 10px;
+        }
+        #productsTable img {
+            width: 50px;
+        }
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Playfair Display', serif;
+    background: linear-gradient(135deg, #79c2d0, #bbe4e9); /* Soft gradient background */
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Accent Color Classes */
+.first-color {
+    background-color: #5585b5 !important;
+    color: #fff;
+}
+
+.second-color {
+    background-color: #53a8b6 !important;
+    color: #fff;
+}
+
+.third-color {
+    background-color: #79c2d0 !important;
+    color: #fff;
+}
+
+.fourth-color {
+    background-color: #bbe4e9 !important;
+    color: #333;
+}
+
+/* Container for Form */
+.container {
+    width: 100%;
+    max-width: 1000px;
+    padding: 40px;
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect for container */
+.container:hover {
+    transform: translateY(-8px);
+}
+
+/* Heading Styles */
+h2 {
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #5585b5; /* Accent heading color */
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-family: 'Playfair Display', serif;
+}
+
+h3 {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+    color: #53a8b6; /* Accent sub-heading color */
+    text-align: center;
+    font-weight: 600;
+    font-family: 'Playfair Display', serif;
+}
+
+/* Form Section Styling */
+.step {
+    display: none;
+}
+
+.step.active {
+    display: block;
+}
+
+/* Input Fields */
+.form-label {
+    font-size: 1.2rem;
+    color: #5585b5; /* Accent label color */
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.form-control {
+    font-size: 1rem;
+    padding: 12px;
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 2px solid #ddd;
+    background-color: #f3f3f3;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Focused input fields with glow */
+.form-control:focus {
+    border-color: #53a8b6;
+    box-shadow: 0 0 12px rgba(83, 168, 182, 0.5);
+    outline: none;
+}
+
+/* Hover effect for input fields */
+.form-control:hover {
+    border-color: #5585b5;
+}
+
+/* Image Preview */
+.image-preview {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: 2px solid #ddd;
+    transition: transform 0.3s ease-in-out;
+}
+
+.image-preview:hover {
+    transform: scale(1.05);
+}
+
+#galleryImagePreviews img {
+    width: 90px;
+    height: 90px;
+    margin-right: 10px;
+    border-radius: 8px;
+    border: 2px solid #ddd;
+}
+
+/* Buttons */
+button {
+    padding: 14px 35px;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+/* Button Colors */
+.btn-primary {
+    background-color: #5585b5; /* First color */
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #53a8b6; /* Second color */
+}
+
+.btn-success {
+    background-color: #53a8b6; /* Second color */
+    color: white;
+}
+
+.btn-success:hover {
+    background-color: #79c2d0; /* Third color */
+}
+
+.btn-warning {
+    background-color: #fdd835;
+    color: white;
+}
+
+.btn-warning:hover {
+    background-color: #fbc02d;
+}
+
+.btn-danger {
+    background-color: #f44336;
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #e53935;
+}
+
+/* Table Styles */
+#productsTable {
+    width: 100%;
+    margin-top: 30px;
+    border-collapse: collapse;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+#productsTable th,
+#productsTable td {
+    padding: 16px;
+    text-align: left;
+    border: 1px solid #ddd;
+    color: #333;
+}
+
+#productsTable th {
+    background-color: #5585b5; /* First color */
+    color: white;
+}
+
+#productsTable td {
+    background-color: #f8f9fa;
+}
+
+/* Clear All Data Button */
+.clear-btn {
+    padding: 14px 28px;
+    font-size: 1.1rem;
+    background-color: #f44336;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.clear-btn:hover {
+    background-color: #e53935;
+}
+
+/* Return to Home Button */
+.return-home-btn {
+    padding: 14px 28px;
+    font-size: 1.1rem;
+    background-color: #3f51b5;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.return-home-btn:hover {
+    background-color: #303f9f;
+}
+
+/* Media Query for Responsiveness */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 2.2rem;
+    }
+
+    .form-control {
+        font-size: 0.9rem;
+    }
+
+    button {
+        font-size: 1rem;
+        padding: 12px 30px;
+    }
+}

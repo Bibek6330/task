@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi Product Form</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .step {
+            display: none;
+        }
+        .step.active {
+            display: block;
+        }
+        #productsTable td, #productsTable th {
+            padding: 8px;
+            text-align: left;
+        }
+        .image-preview {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-top: 10px;
+        }
+        #productsTable img {
+            width: 50px;
+        }
+    </style>
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+    <h2 class="text-center">Multi Product Form</h2>
+
+    <div id="step1" class="step active">
+        <h3>Step 1: Basic Product Details</h3>
+        <form id="productForm">
+            <div class="mb-3">
+                <label for="productName" class="form-label">Product Name</label>
+                <input type="text" id="productName" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="sku" class="form-label">SKU (Stock Keeping Unit)</label>
+                <input type="text" id="sku" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label for="brand" class="form-label">Brand Name</label>
+                <input type="text" id="brand" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="category" class="form-label">Category</label>
+                <select id="category" class="form-control" required>
+                    <option value="">Select Category</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Clothing">Clothing</option>
+                    <option value="Home Appliances">Home Appliances</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="subcategory" class="form-label">Subcategory</label>
+                <select id="subcategory" class="form-control" required>
+                    <option value="">Select Subcategory</option>
+                </select>
+            </div>
+            <button type="button" id="nextStep1" class="btn btn-primary">Next</button>
+        </form>
+    </div>
+
+    <div id="step2" class="step">
+        <h3>Step 2: Descriptions and Metadata</h3>
+        <div class="mb-3">
+            <label for="shortDescription" class="form-label">Short Description</label>
+            <textarea id="shortDescription" class="form-control" maxlength="150" required></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="fullDescription" class="form-label">Full Description</label>
+            <textarea id="fullDescription" class="form-control"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="metaTitle" class="form-label">Meta Title</label>
+            <input type="text" id="metaTitle" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="metaKeywords" class="form-label">Meta Keywords</label>
+            <input type="text" id="metaKeywords" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="metaDescription" class="form-label">Meta Description</label>
+            <textarea id="metaDescription" class="form-control"></textarea>
+        </div>
+        <button type="button" id="prevStep2" class="btn btn-secondary">Previous</button>
+        <button type="button" id="nextStep2" class="btn btn-primary">Next</button>
+    </div>
+
+    <div id="step3" class="step">
+        <h3>Step 3: Media Uploads</h3>
+        <div class="mb-3">
+            <label for="mainImage" class="form-label">Main Image</label>
+            <input type="file" id="mainImage" class="form-control" accept="image/*" required>
+            <img id="mainImagePreview" class="image-preview" src="" alt="Main Image Preview">
+        </div>
+        <div class="mb-3">
+            <label for="galleryImages" class="form-label">Gallery Images (Optional)</label>
+            <input type="file" id="galleryImages" class="form-control" accept="image/*" multiple>
+            <div id="galleryImagePreviews"></div>
+        </div>
+        <button type="button" id="prevStep3" class="btn btn-secondary">Previous</button>
+        <button type="button" id="nextStep3" class="btn btn-primary">Next</button>
+    </div>
+
+    <div id="step4" class="step">
+        <h3>Step 4: Variant Options</h3>
+        <div class="mb-3">
+            <label for="variantType" class="form-label">Variant Type</label>
+            <select id="variantType" class="form-control">
+                <option value="">Select Variant Type</option>
+                <option value="Size">Size</option>
+                <option value="Color">Color</option>
+                <option value="Unit">Unit</option>
+            </select>
+        </div>
+        <div id="sizeOption" class="mb-3">
+            <label for="size" class="form-label">Size</label>
+            <input type="text" id="size" class="form-control">
+        </div>
+        <div id="colorOption" class="mb-3">
+            <label for="color" class="form-label">Color</label>
+            <input type="color" id="color" class="form-control">
+        </div>
+        <div id="unitOption" class="mb-3">
+            <label for="unitCount" class="form-label">Unit Count</label>
+            <input type="number" id="unitCount" class="form-control">
+            <label for="unitType" class="form-label">Unit Type</label>
+            <select id="unitType" class="form-control">
+                <option value="kg">kg</option>
+                <option value="piece">Piece</option>
+            </select>
+        </div>
+        <button type="button" id="prevStep4" class="btn btn-secondary">Previous</button>
+        <button type="button" id="nextStep4" class="btn btn-primary">Next</button>
+    </div>
+
+    <div id="step5" class="step">
+        <h3>Step 5: Pricing and Additional Costs</h3>
+        <div class="mb-3">
+            <label for="basePrice" class="form-label">Base Price</label>
+            <input type="number" id="basePrice" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="discount" class="form-label">Discount (%)</label>
+            <input type="number" id="discount" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="shippingFee" class="form-label">Shipping Fee</label>
+            <input type="number" id="shippingFee" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="totalStock" class="form-label">Total Stock</label>
+            <input type="number" id="totalStock" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label for="finalPrice" class="form-label">Final Price</label>
+            <input type="number" id="finalPrice" class="form-control" disabled>
+        </div>
+        <button type="button" id="prevStep5" class="btn btn-secondary">Previous</button>
+        <button type="button" id="submitForm" class="btn btn-success">Submit</button>
+        
+    </div>
+
+    <div id="productTable" class="mt-5">
+        <h3>Saved Products</h3>
+        
+        <!-- The Saved Products table structure with Edit and Delete buttons for each row -->
+<table class="table" id="productsTable">
+    <thead>
+        <tr>
+            <th>Product Name</th>
+            <th>SKU</th>
+            <th>Category</th>
+            <th>Base Price</th>
+            <th>Final Price</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Dynamically generated rows will appear here -->
+    </tbody>
+</table>
+
+        <button id="clearData" class="btn btn-danger">Clear All Data</button>
+        <button id="returnHome" class="btn btn-primary">Return to Home</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
